@@ -15,8 +15,12 @@ def start(message):
 
     markup.add(item1,item2,item3,item4)
 
-    bot.send_message(message.chat.id,'Привет, {0.first_name}!'.format(message.from_user),reply_markup = markup)
-    
+    bot.send_photo(message.chat.id,
+                   photo=open('img.png', 'rb'),
+                   caption='Привет, {0.first_name}!'.format(message.from_user),
+                   reply_markup = markup)
+
+
 
 @bot.message_handler(content_types=['text'])
 def bot_message(message):
